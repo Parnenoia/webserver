@@ -1,12 +1,13 @@
 {
   "dependencies": {
     "date-fns": "^3.6.0",
+    "express": "^4.19.2",
     "uuid": "^10.0.0"
   },
-  "name": "npm-test",
+  "name": "Express tutorial",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index",
     "dev": "nodemon index"
