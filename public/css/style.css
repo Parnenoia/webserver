@@ -7,8 +7,12 @@
 body {
     font-size: 36px;
     min-height: 100vh;
+    max-width: 80vh;
     color: #fff;
     background-color: #000;
-    display: grid;
-    place-content: center;
+    margin: 0 auto
+}
+img{
+    width: 100%;
+    height: auto;
 }
