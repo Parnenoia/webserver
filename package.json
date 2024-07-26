@@ -12,7 +12,7 @@
   "scripts": {
     "start": "node index",
     "dev": "nodemon index",
-    "build" : "node index"
+    "build" : "tsup app --clean --format cjs,esm --env.NODE_ENV production"
   },
   "author": "arne",
   "license": "ISC",
