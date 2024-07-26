@@ -4,7 +4,7 @@ const path = require('path')
 const cors = require('cors')
 const { logger } = require('./middleware/logEvents')
 const errorHandler = require('./middleware/errorHandler')
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT || 3000
 
 // Custom middleware
 
