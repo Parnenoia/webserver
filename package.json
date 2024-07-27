@@ -8,11 +8,10 @@
   "name": "express-tutorial",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
-    "build" : "tsup app --clean --format cjs,esm --env.NODE_ENV production"
+    "start" : "node index", 
+    "dev" : "nodemon index"
   },
   "author": "arne",
   "license": "ISC",
