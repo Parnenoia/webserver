@@ -2,25 +2,13 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cors = require('cors')
+const corsOptions = require('../config/corsOptions')
 const { logger } = require('../middleware/logEvents')
 const errorHandler = require('../middleware/errorHandler')
 const PORT = process.env.PORT || 3000
 
 // Custom middleware
 app.use(logger)
-
-// CORS policy + (empty) whitelist
-const whitelist = []
-const corsOptions = {
-    origin: (origin, callback) => {
-        if(whitelist.indexOf(origin) !== -1 || !origin) {
-            callback(null, true)
-        } else {
-            callback(new Error('Not allowed by CORS policy'))
-        }
-    },
-    optionsSuccesStatus: 200
-}
 app.use(cors(corsOptions))
 
 //Express middleware
@@ -29,11 +17,9 @@ app.use(express.json())
 
 // Static files
 app.use('/', express.static(path.join(__dirname, '..', '/public')))
-app.use('/subdir', express.static(path.join(__dirname, '..', '/public')))
 
 // Import routes
 app.use('/', require('../routes/root'))
-app.use('/subdir', require('../routes/subdir'))
 app.use('/employees', require('../routes/employees'))
 
 app.all('*', (req, res) => {
@@ -46,8 +32,6 @@ app.all('*', (req, res) => {
         res.type('txt').send("404 not found")
     }
 })
-
-// Error handling
 app.use(errorHandler)
 
 // Serve
