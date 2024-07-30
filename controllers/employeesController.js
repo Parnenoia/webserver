@@ -1,4 +1,3 @@
-
 const data = {
     employees : require('../model/employees.json'),
     setEmployees: function (data) {this.employees = data}
@@ -49,7 +48,7 @@ const deleteEmployee = (req, res) => {
 const getEmployee = (req, res) => {
     const employee = data.employees.find(emp => emp.id === parseInt(req.params.id))
     if(!employee){
-        return res.status(400).json({'message':'No employee found for the requested ID'})
+        return res.status(400).send('My penis is bigger than <a href="https://www.google.be/search?q=big+penis">yours</a>')
     }
     res.json(employee)
 }
