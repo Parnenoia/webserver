@@ -1,16 +1,19 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const credentials = require('../middleware/credentials')
 const cors = require('cors')
 const corsOptions = require('../config/corsOptions')
 const { logger } = require('../middleware/logEvents')
 const errorHandler = require('../middleware/errorHandler')
 const verifyJWT = require('../middleware/verifyJWT')
 const cookieParser = require('cookie-parser')
+
 const PORT = process.env.PORT || 3000
 
 // Custom middleware
 app.use(logger)
+app.use(credentials)
 app.use(cors(corsOptions))
 
 //Express middleware
